@@ -7,6 +7,7 @@ UPDATE 02/09/2013
 -----------------
 
 Minor modifications to make functional under SBCL. Original at: http://hcsw.org/downloads/isaac.lisp
+
 -- "the Phoeron" Colin J.E. Lupton
 
 From Doug Hoyte's original source
