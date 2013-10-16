@@ -13,7 +13,8 @@ Minor modifications to make functional under SBCL. Original at: http://hcsw.org/
 From Doug Hoyte's original source
 =================================
 
-(C) May 2008 Doug Hoyte, HCSW
+(c) May 2008 Doug Hoyte, HCSW
+
 BSD license: you can do anything you want with it (but no warranty).
 
 Optimised Common Lisp implementation of Bob Jenkins' ISAAC-32 algorithm:
