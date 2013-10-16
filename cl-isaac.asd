@@ -18,8 +18,7 @@
   :version #.*isaac-version*
   :author "Doug Hoyte"
   :license "BSD Simplified"
-  :depends-on (#:cl-ppcre)
-  :components ((:file "package")
+  :components ((:file "packages")
                (:file "cl-isaac")))
 
 ;; EOF
