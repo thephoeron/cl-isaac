@@ -66,8 +66,7 @@ QUICK RECIPE
 
 Generate a 128-bit session ID as a 0-padded hexadecimal string:
 
-    (compile-file "isaac.lisp")
-    (load "isaac")
+    (ql:quickload "cl-isaac")
     (defvar my-isaac-ctx (isaac:init-kernel-seed))
     (format nil "~32,'0x" (isaac:rand-bits my-isaac-ctx 128))
       => "078585213B0EF01B1B9BECB291EF38F0"
