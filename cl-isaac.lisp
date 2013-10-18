@@ -3,7 +3,7 @@
 ;; (C) May 2008 Doug Hoyte, HCSW
 ;; BSD license: you can do anything you want with it (but no warranty).
 
-(in-package #:isaac)
+(in-package #:cl-isaac)
 
 
 (defstruct isaac-ctx
