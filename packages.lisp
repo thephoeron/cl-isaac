@@ -3,10 +3,12 @@
 (in-package :cl-user)
 
 (defpackage #:cl-isaac
-   (:use :cl :cl-user)
-   (:export #:init-null-seed
-            #:init-kernel-seed
-            #:init-common-lisp-random-seed
-            #:rand32
-            #:rand-bits))
+  (:nicknames #:isaac)
+  (:use :cl :cl-user)
+  (:export #:init-null-seed
+           #:init-kernel-seed
+           #:init-common-lisp-random-seed
+           #:rand32
+           #:rand-bits))
+
 ;; EOF
