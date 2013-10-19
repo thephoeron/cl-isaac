@@ -16,7 +16,8 @@
   :serial t
   :description "Doug Hoyte's Optimized Common Lisp version of Bob Jenkins' ISAAC-32 algorithm, a fast cryptographic random number generator, ready for ASDF and Quicklisp."
   :version #.*isaac-version*
-  :author "Doug Hoyte"
+  :author "Doug Hoyte <doug@hoytech.com>"
+  :maintainer "\"the Phoeron\" <sysop@thephoeron.com>"
   :license "BSD Simplified"
   :components ((:file "packages")
                (:file "cl-isaac")))
