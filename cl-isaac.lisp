@@ -5,7 +5,6 @@
 
 (in-package #:cl-isaac)
 
-
 (defstruct isaac-ctx
   (randcnt 0 :type (unsigned-byte 32))
   (randrsl (make-array 256 :element-type '(unsigned-byte 32) :initial-element 0)
@@ -15,8 +14,6 @@
   (a 0 :type (unsigned-byte 32))
   (b 0 :type (unsigned-byte 32))
   (c 0 :type (unsigned-byte 32)))
-
-
 
 (defun generate-next-isaac-block (ctx)
   (declare (optimize (speed 3) (safety 0)))
@@ -48,8 +45,6 @@
                     (+ (aref (isaac-ctx-randmem ctx) (logand (ash y -10) #xFF)) x)))
       (setf (aref (isaac-ctx-randrsl ctx) i) (isaac-ctx-b ctx)))))
 
-
-
 (defun rand32 (ctx)
   (let ((c (isaac-ctx-randcnt ctx)))
     (declare (optimize (speed 3) (safety 0)))
@@ -61,7 +56,6 @@
         (aref (isaac-ctx-randrsl ctx) 255))
       (aref (isaac-ctx-randrsl ctx) (isaac-ctx-randcnt ctx)))))
 
-
 (defun rand-bits (ctx n)
   (let ((v 0))
     (loop while (> n 0) do
@@ -70,8 +64,6 @@
                               (rand32 ctx))))
       (decf n (min n 32)))
     v))
-
-
 
 (defmacro incf-wrap32 (a b)
   `(setf ,a (logand #xFFFFFFFF (+ ,a ,b))))
@@ -86,8 +78,6 @@
      (setf ,f (logxor ,f (logand #xFFFFFFFF (ash ,g -4)))) (incf-wrap32 ,a ,f) (incf-wrap32 ,g ,h)
      (setf ,g (logxor ,g (logand #xFFFFFFFF (ash ,h 8)))) (incf-wrap32 ,b ,g) (incf-wrap32 ,h ,a)
      (setf ,h (logxor ,h (logand #xFFFFFFFF (ash ,a -9)))) (incf-wrap32 ,c ,h) (incf-wrap32 ,a ,b)))
-
-
 
 (defun scramble (ctx)
   (let (a b c d e f g h)
@@ -141,8 +131,6 @@
 
     ctx))
 
-
-
 (defun init-kernel-seed ()
   (let ((ctx (make-isaac-ctx)))
     (or
@@ -169,9 +157,6 @@
   (let ((ctx (make-isaac-ctx)))
     (scramble ctx)))
 
-
-
-
 ;; Output is the same as Jenkins' randvect.txt
 (defun jenkins-output (filename)
   (let ((ctx (init-null-seed)))
@@ -182,3 +167,4 @@
           (format o "~(~8,'0x~)" (aref (isaac-ctx-randrsl ctx) j))
           (if (= 7 (logand j 7)) (terpri o)))))))
 
+;; EOF
