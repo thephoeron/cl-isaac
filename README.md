@@ -44,22 +44,29 @@ Clone into `~/quicklisp/local-projects/`.
 
 First, create an isaac context. There are three functions that do this:
 
-**isaac:init-kernel-seed** => *<isaac context>*
-    RECOMMENDED: Seeds with values from `/dev/arandom` on BSD or `/dev/urandom` on Linux. Reads 1024 bytes from the device.
+**isaac:init-kernel-seed** => *`<isaac context>`*
 
-**isaac:init-common-lisp-random-seed** => *<isaac context>*
-    Seeds with values from your Common Lisp implementation's random function. Consumes 256 32-bit values from #'random.
+RECOMMENDED: Seeds with values from `/dev/arandom` on BSD or `/dev/urandom` on Linux. Reads 1024 bytes from the device.
 
-**isaac:init-null-seed** => *<isaac context>*
-    Seeds with all 0s. Always results in the same stream. For comparing with Jenkins' reference implementations.
+**isaac:init-common-lisp-random-seed** => *`<isaac context>`*
+
+Seeds with values from your Common Lisp implementation's random function. Consumes 256 32-bit values from #'random.
+
+**isaac:init-null-seed** => *`<isaac context>`*
+
+Seeds with all 0s. Always results in the same stream. For comparing with Jenkins' reference implementations.
 
 These are functions you can pass an isaac context to. They will modify the isaac context and return a random value:
 
-**isaac:rand32** <isaac context> => *<random 32-bit value>*
-    Uses the ISAAC-32 algorithm to generate a new random value.
+**isaac:rand32** `<isaac context>` => *`<random 32-bit value>`*
 
-**isaac:rand-bits** <isaac context> <N> => *<random N-bit value>*
-    Uses the ISAAC-32 algorithm to generate random values between 0 and (1- (expt 2 N)). This function always consumes one or more ISAAC-32 words. Note that the N parameter is different from the CL random function parameter. Examples:
+Uses the ISAAC-32 algorithm to generate a new random value.
+
+**isaac:rand-bits** `<isaac context>` `<N>` => *`<random N-bit value>`*
+
+Uses the ISAAC-32 algorithm to generate random values between 0 and (1- (expt 2 N)). This function always consumes one or more ISAAC-32 words. Note that the N parameter is different from the CL random function parameter.
+
+Examples:
 
 ```lisp
 (isaac:rand-bits ctx 1) => [0,1]                         ; (consumes 1 ISAAC-32 word)
