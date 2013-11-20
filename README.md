@@ -10,6 +10,15 @@ Minor modifications to make functional under SBCL. Original at: http://hcsw.org/
 
 -- "the Phoeron" Colin J.E. Lupton
 
+UPDATE 11/19/2013
+-----------------
+
+Added request for inclusion in `quicklisp-projects`.
+
+See https://github.com/quicklisp/quicklisp-projects/issues/597 for status updates, etc.
+
+-- "the Phoeron" Colin J.E. Lupton
+
 From Doug Hoyte's original source
 =================================
 
@@ -31,46 +40,48 @@ well when byte-code compiled.
 USAGE
 -----
 
+Clone into `~/quicklisp/local-projects/`.
+
 First, create an isaac context. There are three functions that do this:
 
-    isaac:init-kernel-seed => <isaac context>
-      *RECOMMENDED* Seeds with values from /dev/arandom on BSD
-      or /dev/urandom on Linux. Reads 1024 bytes from the device.
+**isaac:init-kernel-seed** => *<isaac context>*
+    RECOMMENDED: Seeds with values from `/dev/arandom` on BSD or `/dev/urandom` on Linux. Reads 1024 bytes from the device.
 
-    isaac:init-common-lisp-random-seed => <isaac context>
-      Seeds with values from your Common Lisp implementation's
-      random function. Consumes 256 32-bit values from #'random.
+**isaac:init-common-lisp-random-seed** => *<isaac context>*
+    Seeds with values from your Common Lisp implementation's random function. Consumes 256 32-bit values from #'random.
 
-    isaac:init-null-seed => <isaac context>
-      Seeds with all 0s. Always results in the same stream.
-      For comparing with Jenkins' reference implementations.
+**isaac:init-null-seed** => *<isaac context>*
+    Seeds with all 0s. Always results in the same stream. For comparing with Jenkins' reference implementations.
 
 These are functions you can pass an isaac context to. They will modify the isaac context and return a random value:
 
-    isaac:rand32 <isaac context> => <random 32-bit value>
-      Uses the ISAAC-32 algorithm to generate a new random value.
+**isaac:rand32** <isaac context> => *<random 32-bit value>*
+    Uses the ISAAC-32 algorithm to generate a new random value.
 
-    isaac:rand-bits <isaac context> <N> => <random N-bit value>
-      Uses the ISAAC-32 algorithm to generate random values between
-      0 and (1- (expt 2 N)). This function always consumes one or more
-      ISAAC-32 words. Note that the N parameter is different from
-      the CL random function parameter.   Examples:
-        (isaac:rand-bits ctx 1) => [0,1] (consumes 1 ISAAC-32 word)
-        (isaac:rand-bits ctx 2) => [0,1,2,3] (ditto)
-        (isaac:rand-bits ctx 3) => [0,1,2,3,4,5,6,7] (ditto)
-        (isaac:rand-bits ctx 32) => [0,1,...,(1- (expt 2 32))] (ditto)
-        (isaac:rand-bits ctx 33) => [0,1,...,(1- (expt 2 33))] (consumes 2 words)
-        (isaac:rand-bits ctx 512) => [0,1,...,(1- (expt 2 512))] (consumes 16 words)
+**isaac:rand-bits** <isaac context> <N> => *<random N-bit value>*
+    Uses the ISAAC-32 algorithm to generate random values between 0 and (1- (expt 2 N)). This function always consumes one or more ISAAC-32 words. Note that the N parameter is different from the CL random function parameter. Examples:
+
+```lisp
+(isaac:rand-bits ctx 1) => [0,1]                         ; (consumes 1 ISAAC-32 word)
+(isaac:rand-bits ctx 2) => [0,1,2,3]                     ; (ditto)
+(isaac:rand-bits ctx 3) => [0,1,2,3,4,5,6,7]             ; (ditto)
+(isaac:rand-bits ctx 32) => [0,1,...,(1- (expt 2 32))]   ; (ditto)
+(isaac:rand-bits ctx 33) => [0,1,...,(1- (expt 2 33))]   ; (consumes 2 words)
+(isaac:rand-bits ctx 512) => [0,1,...,(1- (expt 2 512))] ; (consumes 16 words)
+```
 
 QUICK RECIPE
 ------------
 
 Generate a 128-bit session ID as a 0-padded hexadecimal string:
 
-    (ql:quickload "cl-isaac")
-    (defvar my-isaac-ctx (isaac:init-kernel-seed))
-    (format nil "~32,'0x" (isaac:rand-bits my-isaac-ctx 128))
-      => "078585213B0EF01B1B9BECB291EF38F0"
+```lisp
+
+(ql:quickload "cl-isaac")
+(defvar my-isaac-ctx (isaac:init-kernel-seed))
+(format nil "~32,'0x" (isaac:rand-bits my-isaac-ctx 128))
+    => "078585213B0EF01B1B9BECB291EF38F0"
+```
 
 FAQ
 ---
