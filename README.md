@@ -19,6 +19,13 @@ See https://github.com/quicklisp/quicklisp-projects/issues/597 for status update
 
 -- "the Phoeron" Colin J.E. Lupton
 
+UPDATE 11/29/2013
+-----------------
+
+Added to [quicklisp-projects](https://github.com/quicklisp/quicklisp-projects) on 11/25/2013, will be included in next Quicklisp release
+
+-- "the Phoeron" Colin J.E. Lupton
+
 From Doug Hoyte's original source
 =================================
 
