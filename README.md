@@ -10,19 +10,10 @@ Minor modifications to make functional under SBCL. Original at: http://hcsw.org/
 
 -- "the Phoeron" Colin J.E. Lupton
 
-UPDATE 11/19/2013
+UPDATE 12/18/2013
 -----------------
 
-Added request for inclusion in `quicklisp-projects`.
-
-See https://github.com/quicklisp/quicklisp-projects/issues/597 for status updates, etc.
-
--- "the Phoeron" Colin J.E. Lupton
-
-UPDATE 11/29/2013
------------------
-
-Added to [quicklisp-projects](https://github.com/quicklisp/quicklisp-projects) on 11/25/2013, will be included in next Quicklisp release
+Now available in the December 2013 distribution of Quicklisp
 
 -- "the Phoeron" Colin J.E. Lupton
 
@@ -47,7 +38,7 @@ well when byte-code compiled.
 USAGE
 -----
 
-Clone into `~/quicklisp/local-projects/`.
+Make sure you have the latest Quicklisp distribution, then include it as a dependency in your system definition, or from the REPL evaluate `(ql:quickload "cl-isaac")`.
 
 First, create an isaac context. There are three functions that do this:
 
