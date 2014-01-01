@@ -91,16 +91,16 @@ Generate a 128-bit session ID as a 0-padded hexadecimal string:
 FAQ
 ---
 
-Q) My Common Lisp implementation already uses the Mersenne Twister, what are the advantages of ISAAC?
+**Q)** My Common Lisp implementation already uses the Mersenne Twister, what are the advantages of ISAAC?
 
-A1) The Mersenne Twister is not a cryptographic PRNG. This means that it is possible for someone to predict future values based on previously observed values (just over 600 of them). As such, MT is particularly undesirable for things like web session IDs. You can still use MT for crypto, but you must use a cryptographic hash function on the MT output.
+**A1)** The Mersenne Twister is not a cryptographic PRNG. This means that it is possible for someone to predict future values based on previously observed values (just over 600 of them). As such, MT is particularly undesirable for things like web session IDs. You can still use MT for crypto, but you must use a cryptographic hash function on the MT output.
 
-A2) cl-isaac appears to be roughly as fast as the Mersenne Twister #'random of CMUCL 19d on x86 before even considering the above-mentioned hash function overhead requirement of MT.
+**A2)** cl-isaac appears to be roughly as fast as the Mersenne Twister #'random of CMUCL 19d on x86 before even considering the above-mentioned hash function overhead requirement of MT.
 
-A3) cl-isaac is not implemented as an x86 VOP like CMUCL's Mersenne Twister, but instead in 100% standard ANSI Common Lisp (except for the kernel seed interface). This should mean comparable performance on all architectures targeted by your lisp compiler. The non-x86 MT implementation is apparently an order-of-magnitude slower.
+**A3)** cl-isaac is not implemented as an x86 VOP like CMUCL's Mersenne Twister, but instead in 100% standard ANSI Common Lisp (except for the kernel seed interface). This should mean comparable performance on all architectures targeted by your lisp compiler. The non-x86 MT implementation is apparently an order-of-magnitude slower.
 
-Q) How "random" can I expect these values to be?
+**Q)** How "random" can I expect these values to be?
 
-A) Very. From Bob Jenkins' website: "Cycles are guaranteed to be at least (expt 2 40) values long, and they are (expt 2 8295) values long on average. The results are uniformly distributed, unbiased, and unpredictable unless you know the seed. [...] Why not use RC4? RC4 is three times slower, more biased, has a shorter minimum and average cycle length, and is proprietary. No way is known to break either RC4 or ISAAC; both are immune to Gaussian elimination."
+**A)** Very. From Bob Jenkins' website: "Cycles are guaranteed to be at least (expt 2 40) values long, and they are (expt 2 8295) values long on average. The results are uniformly distributed, unbiased, and unpredictable unless you know the seed. [...] Why not use RC4? RC4 is three times slower, more biased, has a shorter minimum and average cycle length, and is proprietary. No way is known to break either RC4 or ISAAC; both are immune to Gaussian elimination."
 
 Note that there is a $1000 prize you can win from Jenkins if you find a flaw in ISAAC (but all flaws in isaac.lisp are of course mine).
