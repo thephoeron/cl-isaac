@@ -1,24 +1,14 @@
-cl-isaac
-========
+# cl-isaac
 
 Doug Hoyte's Optimized Common Lisp version of Bob Jenkins' ISAAC-32 algorithm, a fast cryptographic random number generator, ready for ASDF and Quicklisp.
- 
-UPDATE 02/09/2013
------------------
 
-Minor modifications to make functional under SBCL. Original at: http://hcsw.org/downloads/isaac.lisp
+#### UPDATE 01/20/2014
 
--- "the Phoeron" Colin J.E. Lupton
-
-UPDATE 12/18/2013
------------------
-
-Now available in the December 2013 distribution of Quicklisp
+Adding port of Bob Jenkins' ISAAC-64 algorithm to CL-ISAAC package.
 
 -- "the Phoeron" Colin J.E. Lupton
 
-From Doug Hoyte's original source
-=================================
+### From Doug Hoyte's original source
 
 (c) May 2008 Doug Hoyte, HCSW
 
@@ -35,8 +25,7 @@ This lisp implementation is roughly as fast as Jenkins' optimised rand.c
 when compiled with a good native-code lisp compiler. It also performs
 well when byte-code compiled.
 
-USAGE
------
+### USAGE
 
 Make sure you have the latest Quicklisp distribution, then include it as a dependency in your system definition, or from the REPL evaluate `(ql:quickload "cl-isaac")`.
 
@@ -75,8 +64,7 @@ Examples:
 (isaac:rand-bits ctx 512) => [0,1,...,(1- (expt 2 512))] ; (consumes 16 words)
 ```
 
-QUICK RECIPE
-------------
+### QUICK RECIPE
 
 Generate a 128-bit session ID as a 0-padded hexadecimal string:
 
@@ -88,8 +76,7 @@ Generate a 128-bit session ID as a 0-padded hexadecimal string:
     => "078585213B0EF01B1B9BECB291EF38F0"
 ```
 
-FAQ
----
+### FAQ
 
 **Q)** My Common Lisp implementation already uses the Mersenne Twister, what are the advantages of ISAAC?
 
@@ -103,4 +90,16 @@ FAQ
 
 **A)** Very. From Bob Jenkins' website: "Cycles are guaranteed to be at least (expt 2 40) values long, and they are (expt 2 8295) values long on average. The results are uniformly distributed, unbiased, and unpredictable unless you know the seed. [...] Why not use RC4? RC4 is three times slower, more biased, has a shorter minimum and average cycle length, and is proprietary. No way is known to break either RC4 or ISAAC; both are immune to Gaussian elimination."
 
-Note that there is a $1000 prize you can win from Jenkins if you find a flaw in ISAAC (but all flaws in isaac.lisp are of course mine).
+Note that there is a $1000 prize you can win from Jenkins if you find a flaw in ISAAC (but all flaws in CL-ISAAC are of course mine).
+
+### SYSTEM REQUIREMENTS
+
+* 64-bit version of Windows, Linux, or OS X
+* 64-bit version of SBCL v1.1.7+
+* Quicklisp
+
+### CONTRIBUTING
+
+If you find any bugs or would like to see CL-ISAAC work on your platform, please create an issue on [the master GitHub repository](https://github.com/thephoeron/cl-isaac).
+
+To contribute to CL-ISAAC, please create a pull request or join the collaborative development [on Cloud9 IDE](https://c9.io/thephoeron/cl-isaac).

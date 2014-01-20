@@ -7,7 +7,7 @@
 
 (in-package :cl-isaac-asd)
 
-(defvar *isaac-version* "1.0"
+(defvar *isaac-version* "1.0.1"
   "A string denoting the current version of CL-ISAAC.  Used for diagnostic output.")
 
 (export '*isaac-version*)
@@ -20,6 +20,8 @@
   :maintainer "\"the Phoeron\" Colin J.E. Lupton <sysop@thephoeron.com>"
   :license "BSD Simplified"
   :components ((:file "packages")
+               (:file "isaac-32")
+               (:file "isaac-64")
                (:file "cl-isaac")))
 
 ;; EOF
