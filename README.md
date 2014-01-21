@@ -1,6 +1,6 @@
 # cl-isaac
 
-Doug Hoyte's Optimized Common Lisp version of Bob Jenkins' ISAAC-32 algorithm, a fast cryptographic random number generator, ready for ASDF and Quicklisp.
+Optimized Common Lisp version of Bob Jenkins' ISAAC-32 and ISAAC-64 algorithms, fast cryptographic random number generators, ready for ASDF and Quicklisp.
 
 #### UPDATE 01/20/2014
 
