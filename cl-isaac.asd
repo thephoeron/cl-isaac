@@ -21,7 +21,7 @@
   :license "BSD Simplified"
   :components ((:file "packages")
                (:file "isaac-32")
-               (:file "isaac-64")
+               #+:x86-64 (:file "isaac-64")
                (:file "cl-isaac")))
 
 ;; EOF
