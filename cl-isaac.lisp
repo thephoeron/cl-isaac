@@ -85,7 +85,7 @@
       (loop for i from 0 below 2 do
             (generate-next-isaac64-block ctx)
             (loop for j from 0 below 256 do
-                  (format o "~(~16,'0x~)" (aref (issac64-ctx-randrsl ctx) j))
+                  (format o "~(~16,'0x~)" (aref (isaac64-ctx-randrsl ctx) j))
                   (if (= 7 (logand j 7)) (terpri o)))))))
 
 ;; EOF
