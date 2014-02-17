@@ -1,5 +1,9 @@
 ;;;; -*- Mode: LISP; Syntax: COMMON-LISP; Package: CL-ISAAC; Base: 10 -*- file: cl-isaac.asd
 
+;; Copyright (c) 2008 Doug Hoyte, HCSW
+;; Copyright (c) 2014, "the Phoeron" Colin J.E. Lupton
+;; BSD license: you can do anything you want with it (but no warranty).
+
 (in-package :cl-user)
 
 (defpackage cl-isaac-asd
@@ -7,7 +11,7 @@
 
 (in-package :cl-isaac-asd)
 
-(defvar *isaac-version* "1.0.1"
+(defvar *isaac-version* "1.0.2"
   "A string denoting the current version of CL-ISAAC.  Used for diagnostic output.")
 
 (export '*isaac-version*)
