@@ -2,9 +2,11 @@
 
 Optimized Common Lisp version of Bob Jenkins' ISAAC-32 and ISAAC-64 algorithms, fast cryptographic random number generators, ready for ASDF and Quicklisp.
 
-#### UPDATE 01/20/2014
+#### UPDATE 02/17/2014
 
-Adding port of Bob Jenkins' ISAAC-64 algorithm to CL-ISAAC package.
+Port of Bob Jenkins' ISAAC-64 algorithm to CL-ISAAC package has been completed.
+
+If you find any bugs, please report them at: https://github.com/thephoeron/cl-isaac/issues
 
 -- "the Phoeron" Colin J.E. Lupton
 
