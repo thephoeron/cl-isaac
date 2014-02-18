@@ -68,14 +68,23 @@ Examples:
 
 ### QUICK RECIPE
 
-Generate a 128-bit session ID as a 0-padded hexadecimal string:
+Generate a random 128-bit session ID as a 0-padded hexadecimal string:
 
 ```lisp
 
-(ql:quickload "cl-isaac")
-(defvar my-isaac-ctx (isaac:init-kernel-seed))
-(format nil "~32,'0x" (isaac:rand-bits my-isaac-ctx 128))
+* (ql:quickload "cl-isaac")
+* (defvar my-isaac-ctx (isaac:init-kernel-seed))
+* (format nil "~32,'0x" (isaac:rand-bits my-isaac-ctx 128))
     => "078585213B0EF01B1B9BECB291EF38F0"
+```
+
+Generate a random 512-bit token using the ISAAC-64 algorithm:
+
+```lisp
+
+* (defvar my-isaac64-ctx (isaac:init-kernel-seed :is64 t))
+* (format nil "~64,'0x" (isaac:rand-bits-64 my-isaac64-ctx 512))
+    => "6F00D098A342450CD7A2C27D941625ED70E7F7F4DD0BD46D8D1597361F0AA49180728D9BA062A14E6795F579D5B04B01F92310F18921A7397C57CF09012E104F"
 ```
 
 ### FAQ
