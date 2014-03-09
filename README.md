@@ -109,6 +109,14 @@ Note that there is a $1000 prize you can win from Jenkins if you find a flaw in 
 * 64-bit version of SBCL v1.1.7+
 * Quicklisp
 
+### SUPPORTING THIS PROJECT
+
+You can support this project by donating Bitcoin or Litecoin:
+
+BTC: 13imVmHQXDpJDigtnKjUJKaPJ7vhwfLZ8i
+
+LTC: LSPQBg3opQuWaruxtjJ6CwKVn1SyG5aiFW
+
 ### CONTRIBUTING
 
 If you find any bugs or would like to see CL-ISAAC work on your platform, please create an issue on [the master GitHub repository](https://github.com/thephoeron/cl-isaac).
