@@ -1,31 +1,21 @@
 # cl-isaac
 
-Optimized Common Lisp version of Bob Jenkins' ISAAC-32 and ISAAC-64 algorithms, fast cryptographic random number generators, ready for ASDF and Quicklisp.
+Optimized Common Lisp library of Bob Jenkins' ISAAC-32 and ISAAC-64 algorithms, fast cryptographic random number generators: Indirection, Shift, Accumulate, Add, and Count. Available in Quicklisp.
 
-#### UPDATE 02/17/2014
+The C reference implementations are available at:
 
-Port of Bob Jenkins' ISAAC-64 algorithm to CL-ISAAC package has been completed.
+http://burtleburtle.net/bob/rand/isaacafa.html
+
+This Common Lisp implementation is roughly as fast as Jenkins' optimised rand.c when compiled with SBCL. It also performs
+well when byte-code compiled.
+
+#### UPDATE 03/20/2014
+
+CL-ISAAC v1.0.3, including ISAAC-64 algorithm, now available in the March 2014 Quicklisp update.
 
 If you find any bugs, please report them at: https://github.com/thephoeron/cl-isaac/issues
 
 -- "the Phoeron" Colin J.E. Lupton
-
-### From Doug Hoyte's original source
-
-(c) May 2008 Doug Hoyte, HCSW
-
-BSD license: you can do anything you want with it (but no warranty).
-
-Optimised Common Lisp implementation of Bob Jenkins' ISAAC-32 algorithm:
-Indirection, Shift, Accumulate, Add, and Count. More details and
-the C reference implementations can be found here:
-
-ISAAC: a fast cryptographic random number generator
-http://burtleburtle.net/bob/rand/isaacafa.html
-
-This lisp implementation is roughly as fast as Jenkins' optimised rand.c
-when compiled with a good native-code lisp compiler. It also performs
-well when byte-code compiled.
 
 ### USAGE
 
@@ -122,3 +112,7 @@ LTC: LSPQBg3opQuWaruxtjJ6CwKVn1SyG5aiFW
 If you find any bugs or would like to see CL-ISAAC work on your platform, please create an issue on [the master GitHub repository](https://github.com/thephoeron/cl-isaac).
 
 To contribute to CL-ISAAC, please create a pull request or join the collaborative development [on Cloud9 IDE](https://c9.io/thephoeron/cl-isaac).
+
+### LICENSE
+
+This library is released under a BSD-like license.  Please see LICENSE file for more information.
