@@ -6,8 +6,7 @@ The C reference implementations are available at:
 
 http://burtleburtle.net/bob/rand/isaacafa.html
 
-This Common Lisp implementation is roughly as fast as Jenkins' optimised rand.c when compiled with SBCL. It also performs
-well when byte-code compiled.
+This Common Lisp version is roughly as fast as Jenkins' optimised *rand.c* when compiled with SBCL.
 
 #### UPDATE 03/20/2014
 
@@ -19,9 +18,9 @@ If you find any bugs, please report them at: https://github.com/thephoeron/cl-is
 
 ### USAGE
 
-Make sure you have the latest Quicklisp distribution, then include it as a dependency in your system definition, or from the REPL evaluate `(ql:quickload "cl-isaac")`.
+Make sure you have the latest Quicklisp distribution. Include CL-ISAAC as a dependency in your system definition, or evaluate `(ql:quickload "cl-isaac")` from the REPL.
 
-First, create an isaac context. There are three functions that do this:
+First, you need to create an isaac context. There are three functions that do this:
 
 **isaac:init-kernel-seed** => *`<isaac context>`*
 
@@ -55,6 +54,8 @@ Examples:
 (isaac:rand-bits ctx 33) => [0,1,...,(1- (expt 2 33))]   ; (consumes 2 words)
 (isaac:rand-bits ctx 512) => [0,1,...,(1- (expt 2 512))] ; (consumes 16 words)
 ```
+
+Conversely, the ISAAC-64 algorithm uses 64-bit word sizes, and scales accordingly.
 
 ### QUICK RECIPE
 
@@ -111,7 +112,7 @@ LTC: LSPQBg3opQuWaruxtjJ6CwKVn1SyG5aiFW
 
 If you find any bugs or would like to see CL-ISAAC work on your platform, please create an issue on [the master GitHub repository](https://github.com/thephoeron/cl-isaac).
 
-To contribute to CL-ISAAC, please create a pull request or join the collaborative development [on Cloud9 IDE](https://c9.io/thephoeron/cl-isaac).
+To contribute to CL-ISAAC, please fork and create a pull request.
 
 ### LICENSE
 
