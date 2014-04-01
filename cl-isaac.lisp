@@ -58,6 +58,11 @@
                       (random (ash 1 32))))
           (scramble ctx)))))
 
+;; Needs a 'count' parameter, to control depth of self-seeding.
+;; default 1, >3 best for strong randomization
+(defun init-self-seed (&key (is64 nil))
+  "Initialize cryptographically strong self-seed.  If :is64 t, use ISAAC-64 context.")
+
 (defun init-null-seed (&key (is64 nil))
   "Initialize null seed, useful for testing but not production.  If :is64 t, use ISAAC-64 context."
   (let ((ctx (if is64
