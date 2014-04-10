@@ -59,7 +59,7 @@
           (scramble ctx)))))
 
 (defun init-self-seed (&key (count 1) (is64 nil))
-  "Initialize cryptographically strong self-seed starting with a kernel-seed as first round, and then performing a scramble on the bits and modulus between the resulting values and a new kernel-seed on each additional count. :count n (default: 1), a real number, instructs the self-seed to repeat n times. If :is64 t, use ISAAC-64 context."
+  "Initialize cryptographically strong self-seed starting with a kernel-seed as first round, and then performing a scramble on the bits and modular addition between the resulting values and a new kernel-seed on each additional count. :count n (default: 1), a real number, instructs the self-seed to repeat n times. If :is64 t, use ISAAC-64 context."
   (let ((ctx (if is64
                  (handler-case (make-isaac64-ctx) (error () nil))
                  (make-isaac-ctx))))
@@ -70,8 +70,9 @@
                             do (progn
                                  (scramble64 ctx)
                                  (setf (aref (isaac64-ctx-randrsl ctx) x)
-                                       (mod (aref (isaac64-ctx-randrsl ctx) x)
-                                            (rand-bits-64 (init-kernel-seed :is64 t) 64)))))
+                                       (mod (+ (aref (isaac64-ctx-randrsl ctx) x)
+                                               (rand-bits-64 (init-kernel-seed :is64 t) 64))
+                                            (ash 1 64)))))
                  when (= i 0)
                    do (loop for j from 0 below 256
                             do (setf (aref (isaac64-ctx-randrsl ctx) j)
@@ -84,8 +85,9 @@
                             do (progn
                                  (scramble ctx)
                                  (setf (aref (isaac-ctx-randrsl ctx) x)
-                                       (mod (aref (isaac-ctx-randrsl ctx) x)
-                                            (rand-bits (init-kernel-seed) 32)))))
+                                       (mod (+ (aref (isaac-ctx-randrsl ctx) x)
+                                               (rand-bits (init-kernel-seed) 32))
+                                            (ash 1 32)))))
                  when (= i 0)
                    do (loop for j from 0 below 256
                             do (setf (aref (isaac-ctx-randrsl ctx) j)
