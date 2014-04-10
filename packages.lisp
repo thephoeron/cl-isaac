@@ -20,6 +20,7 @@
            #:init-kernel-seed
            #:init-common-lisp-random-seed
            #:init-null-seed
+           #:init-self-seed
            #:jenkins-output)
   #+:x86-64
   (:export ;; ISAAC-64
