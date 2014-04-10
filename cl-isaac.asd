@@ -11,7 +11,7 @@
 
 (in-package :cl-isaac-asd)
 
-(defvar *isaac-version* "1.0.3"
+(defvar *isaac-version* "1.0.4"
   "A string denoting the current version of CL-ISAAC.  Used for diagnostic output.")
 
 (export '*isaac-version*)

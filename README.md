@@ -8,6 +8,12 @@ http://burtleburtle.net/bob/rand/isaacafa.html
 
 This Common Lisp version is roughly as fast as Jenkins' optimised *rand.c* when compiled with SBCL.
 
+#### UPDATE 04/10/2014
+
+Version number incremented to 1.0.4; added INIT-SELF-SEED for stronger cryptographic randomization.
+
+-- "the Phoeron" Colin J.E. Lupton
+
 #### UPDATE 03/20/2014
 
 CL-ISAAC v1.0.3, including ISAAC-64 algorithm, now available in the March 2014 Quicklisp update.
