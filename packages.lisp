@@ -16,20 +16,19 @@
            #:rand-bits
            #:mix
            #:scramble
-           ;; Common
-           #:init-kernel-seed
-           #:init-common-lisp-random-seed
-           #:init-null-seed
-           #:init-self-seed
-           #:jenkins-output)
-  #+:x86-64
-  (:export ;; ISAAC-64
+           ;; ISAAC-64
            #:isaac64-ctx
            #:generate-next-isaac64-block
            #:rand64
            #:rand-bits-64
            #:mix64
            #:scramble64
+           ;; Common
+           #:init-self-seed
+           #:init-kernel-seed
+           #:init-common-lisp-random-seed
+           #:init-null-seed
+           #:jenkins-output
            #:jenkins-output-64))
 
 ;; EOF
