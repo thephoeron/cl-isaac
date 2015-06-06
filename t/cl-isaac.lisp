@@ -9,10 +9,10 @@
 
 ;; NOTE: To run this test file, execute `(asdf:test-system :cl-isaac)' in your Lisp.
 
-(plan 5)
+(plan 1)
 
 (deftest sanity-check
-  (is '(+ 1 1)
+  (is (+ 1 1)
       2
       "Sane Lisp system."))
 
