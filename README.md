@@ -1,5 +1,7 @@
 # cl-isaac
 
+[![Build Status](https://travis-ci.org/thephoeron/cl-isaac.svg?branch=master)](https://travis-ci.org/thephoeron/cl-isaac)
+
 Optimized Common Lisp library of Bob Jenkins' ISAAC-32 and ISAAC-64 algorithms, fast cryptographic random number generators: Indirection, Shift, Accumulate, Add, and Count. Available in Quicklisp.
 
 The C reference implementations are available at:
