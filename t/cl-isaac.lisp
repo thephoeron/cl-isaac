@@ -12,8 +12,8 @@
 (plan 5)
 
 (deftest sanity-check
-  (is 2
-      '(+ 1 1)
+  (is '(+ 1 1)
+      2
       "Sane Lisp system."))
 
 (run-test-all)
