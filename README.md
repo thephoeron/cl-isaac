@@ -4,6 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/thephoeron/cl-isaac/badge.svg?branch=master)](https://coveralls.io/r/thephoeron/cl-isaac?branch=master)
 [![Available in Quicklisp](https://img.shields.io/badge/quicklisp-available-brightgreen.svg)](https://quicklisp.org/)
 [![BSD Simplified License](https://img.shields.io/badge/license-BSD%20Simplified-blue.svg)](./LICENSE)
+[![Join the chat at https://gitter.im/thephoeron/cl-isaac](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/thephoeron/cl-isaac?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Optimized Common Lisp library of Bob Jenkins' ISAAC-32 and ISAAC-64 algorithms, fast cryptographic random number generators: Indirection, Shift, Accumulate, Add, and Count. Available in Quicklisp.
 
