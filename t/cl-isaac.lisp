@@ -14,7 +14,13 @@
 (deftest sanity-check
   (is (+ 1 1)
       2
-      "Sane Lisp system."))
+      "Addition: (+ 1 1) => 2.")
+  (is (* 2 2)
+      4
+      "Multiplication: (* 2 2) => 4.")
+  (is (length "four")
+      4
+      "Length: (length \"four\") => 4."))
 
 (run-test-all)
 
