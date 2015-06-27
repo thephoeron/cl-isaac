@@ -43,7 +43,7 @@
 
 (defun init-common-lisp-random-seed (&key (is64 nil))
   "Initialize random seed from CL:RANDOM.  If :is64 t, use ISAAC-64 context."
-  (let ((ctx (if is64 
+  (let ((ctx (if is64
                  (handler-case (make-isaac64-ctx) (error () nil))
                  (make-isaac-ctx))))
     (if (and is64 ctx)
@@ -54,7 +54,7 @@
           (scramble64 ctx))
         (progn
           (loop for i from 0 below 256 do
-                (setf (aref (isaac-ctx-randrsl ctx) i) 
+                (setf (aref (isaac-ctx-randrsl ctx) i)
                       (random (ash 1 32))))
           (scramble ctx)))))
 
@@ -127,7 +127,7 @@
 
 #+:x86-64
 (defun test-self-seed-64 (filename)
-  "Output ISAAC-64 block context to FILENAME using null seed."
+  "Output ISAAC-64 block context to FILENAME using self-seed."
   (let ((ctx (init-self-seed :count 3 :is64 t)))
     (with-open-file (o filename :direction :output :if-exists :supersede)
       (loop for i from 0 below 2 do
