@@ -9,7 +9,7 @@
 
 ;; NOTE: To run this test file, execute `(asdf:test-system :cl-isaac)' in your Lisp.
 
-(plan 2)
+(plan 3)
 
 ;; Sanity Test
 
@@ -44,6 +44,26 @@
   (ok (<= (integer-length (isaac:rand64 *ssctx64*))
           64)
       "Generated a random 64-bit integer with RAND64 on *SSCTX64*."))
+
+;; Kernel-seed Context Tests
+
+(defparameter *ksctx32* (isaac:init-kernel-seed))
+
+(defparameter *ksctx64* (isaac:init-kernel-seed :is64 t))
+
+(deftest kernel-seed
+  (is-type *ksctx32*
+           'cl-isaac:isaac-ctx
+           "*KSCTX32* has a type of ISAAC-CTX.")
+  (ok (<= (integer-length (isaac:rand32 *ksctx32*))
+          32)
+      "Generated a random 32-bit integer with RAND32 on *KSCTX32*.")
+  (is-type *ksctx64*
+           'cl-isaac:isaac64-ctx
+           "*KSCTX64* has a type of ISAAC64-CTX.")
+  (ok (<= (integer-length (isaac:rand64 *ksctx64*))
+          64)
+      "Generated a random 64-bit integer with RAND64 on *KSCTX64*."))
 
 (run-test-all)
 
