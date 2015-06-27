@@ -9,7 +9,7 @@
 
 ;; NOTE: To run this test file, execute `(asdf:test-system :cl-isaac)' in your Lisp.
 
-(plan 3)
+(plan 4)
 
 ;; Sanity Test
 
@@ -64,6 +64,22 @@
   (ok (<= (integer-length (isaac:rand64 *ksctx64*))
           64)
       "Generated a random 64-bit integer with RAND64 on *KSCTX64*."))
+
+;; Jenkins' Tests
+
+(deftest jenkins-outputs
+  (ok (not (isaac:jenkins-output "jenkins.txt"))
+      "Created file jenkins.txt")
+  (is (with-open-file (o "jenkins.txt")
+        (file-length o))
+      4160
+      "Jenkins' 32-bit test output is the correct length.")
+  (ok (not (isaac:jenkins-output-64 "jenkins64.txt"))
+      "Created file jenkins64.txt")
+  (is (with-open-file (o "jenkins64.txt")
+        (file-length o))
+      8256
+      "Jenkins' 64-bit test output is the correct length."))
 
 (run-test-all)
 
