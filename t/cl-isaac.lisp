@@ -32,15 +32,15 @@
 (defparameter *ssctx64* (isaac:init-self-seed :is64 t))
 
 (deftest self-seed
-  (is (type-of *ssctx32*)
-      'cl-isaac:isaac-ctx
-      "*SSCTX32* has a type of ISAAC-CTX.")
+  (is-type *ssctx32*
+           'cl-isaac:isaac-ctx
+           "*SSCTX32* has a type of ISAAC-CTX.")
   (ok (<= (integer-length (isaac:rand32 *ssctx32*))
           32)
       "Generated a random 32-bit integer with RAND32 on *SSCTX32*.")
-  (is (type-of *ssctx64*)
-      'cl-isaac:isaac64-ctx
-      "*SSCTX64* has a type of ISAAC64-CTX.")
+  (is-type *ssctx64*
+           'cl-isaac:isaac64-ctx
+           "*SSCTX64* has a type of ISAAC64-CTX.")
   (ok (<= (integer-length (isaac:rand64 *ssctx64*))
           64)
       "Generated a random 64-bit integer with RAND64 on *SSCTX64*."))
