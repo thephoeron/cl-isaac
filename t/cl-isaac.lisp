@@ -27,9 +27,9 @@
 
 ;; Self-seed Context Tests
 
-(defparameter *ssctx32* (isaac:init-self-seed))
+(defparameter *ssctx32* (isaac:init-self-seed :count 5))
 
-(defparameter *ssctx64* (isaac:init-self-seed :is64 t))
+(defparameter *ssctx64* (isaac:init-self-seed :count 5 :is64 t))
 
 (deftest self-seed
   (is-type *ssctx32*
