@@ -19,11 +19,11 @@ matrix:
   allow_failures:
     - env: LISP=sbcl32
     - env: LISP=ccl32
+    - env: LISP=clisp
     - env: LISP=clisp32
     - env: LISP=cmucl
     - env: LISP=allegro
     - env: LISP=ecl
-    - env: LISP=abcl
 
 install:
   - if [ -x ./install.sh ] && head -2 ./install.sh | grep '^# cl-travis' > /dev/null;
