@@ -1,5 +1,7 @@
 # cl-isaac
 
+[![Join the chat at https://gitter.im/thephoeron/cl-isaac](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/thephoeron/cl-isaac?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](https://travis-ci.org/thephoeron/cl-isaac.svg?branch=master)](https://travis-ci.org/thephoeron/cl-isaac)
 [![Coverage Status](https://coveralls.io/repos/thephoeron/cl-isaac/badge.svg?branch=master)](https://coveralls.io/r/thephoeron/cl-isaac?branch=master)
 [![Quicklisp](http://quickdocs.org/badge/cl-isaac.svg)](http://quickdocs.org/cl-isaac/)
