@@ -9,7 +9,7 @@
 ;; Update Seed and Output functions to handle both 32 and 64 bit ISAAC algorithms
 
 (defun init-kernel-seed (&key (is64 nil))
-  "Initialize Kernel seed from /dev/arandom on BSD systems, /dev/urandom on Linux systems, or return an error.  If :is64 t, use ISAAC-64 context."
+  "Initialize Kernel seed from /dev/arandom on BSD systems, /dev/urandom on Linux systems, secure-random on Windows systems, or return an error.  If :is64 t, use ISAAC-64 context."
   (let ((ctx (if is64
                  (handler-case (make-isaac64-ctx) (error () nil))
                  (make-isaac-ctx))))
@@ -25,6 +25,10 @@
               (with-open-file (r "/dev/urandom" :direction :input :element-type '(unsigned-byte 64))
                 #1#
                 t))
+            (ignore-errors
+              (loop for i from 0 below 256 do
+                (setf (aref (isaac64-ctx-randrsl ctx) i) (secure-random::octets-to-integer (secure-random:bytes 8 secure-random:*generator*))))
+              t)
             (error "couldn't open /dev/arandom or /dev/urandom"))
           (scramble64 ctx))
         (progn
@@ -38,8 +42,14 @@
               (with-open-file (r "/dev/urandom" :direction :input :element-type '(unsigned-byte 32))
                 #2#
                 t))
+            (ignore-errors
+              (loop for i from 0 below 256 do
+                (setf (aref (isaac-ctx-randrsl ctx) i) (secure-random::octets-to-integer (secure-random:bytes 4 secure-random:*generator*))))
+              t)
             (error "couldn't open /dev/arandom or /dev/urandom"))
           (scramble ctx)))))
+
+
 
 (defun init-common-lisp-random-seed (&key (is64 nil))
   "Initialize random seed from CL:RANDOM.  If :is64 t, use ISAAC-64 context."

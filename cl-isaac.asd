@@ -1,4 +1,4 @@
-;;;; -*- Mode: LISP; Syntax: COMMON-LISP; Package: CL-ISAAC; Base: 10 -*- 
+;;;; -*- Mode: LISP; Syntax: COMMON-LISP; Package: CL-ISAAC; Base: 10 -*-
 ;;;; file: cl-isaac.asd
 
 ;; Copyright (c) 2008 Doug Hoyte, HCSW
@@ -24,6 +24,7 @@
   :author "Doug Hoyte <doug@hoytech.com>"
   :maintainer "\"the Phoeron\" Colin J.E. Lupton <sysop@thephoeron.com>"
   :license "BSD Simplified"
+  :depends-on (#:secure-random)
   :components ((:file "packages")
                (:file "isaac-32")
                #+:x86-64 (:file "isaac-64")
