@@ -36,16 +36,16 @@
     (setf (isaac64-ctx-a ctx)
           (logand #xFFFFFFFFFFFFFFFF
                   (+ (isaac64-ctx-a ctx)
-                     (aref (isaac64-ctx-randmem ctx) (logand (+ i 128) #xFFFF)))))
+                     (aref (isaac64-ctx-randmem ctx) (logand (+ i 128) #xFF)))))
     (let* ((x (aref (isaac64-ctx-randmem ctx) i))
            (y (logand #xFFFFFFFFFFFFFFFF
-                      (+ (aref (isaac64-ctx-randmem ctx) (logand (ash x -2) #xFFFF))
+                      (+ (aref (isaac64-ctx-randmem ctx) (logand (ash x -2) #xFF))
                          (isaac64-ctx-a ctx)
                          (isaac64-ctx-b ctx)))))
       (setf (aref (isaac64-ctx-randmem ctx) i) y)
       (setf (isaac64-ctx-b ctx)
             (logand #xFFFFFFFFFFFFFFFF
-                    (+ (aref (isaac64-ctx-randmem ctx) (logand (ash y -10) #xFFFF)) x)))
+                    (+ (aref (isaac64-ctx-randmem ctx) (logand (ash y -10) #xFF)) x)))
       (setf (aref (isaac64-ctx-randrsl ctx) i) (isaac64-ctx-b ctx)))))
 
 (defun rand64 (ctx)
