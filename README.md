@@ -23,11 +23,12 @@ This Common Lisp version is roughly as fast as Jenkins' optimised *rand.c* when 
 ### v1.0.4 04/10/2014
 
 - Added INIT-SELF-SEED for stronger cryptographic randomization.
-- Version number incremented to 1.0.4
 
 ### v1.0.3 03/20/2014
 
-CL-ISAAC v1.0.3, including ISAAC-64 algorithm, now available in the March 2014 Quicklisp update.
+- Available in the March 2014 Quicklisp update.
+
+## ISSUES
 
 If you find any bugs, please report them at: https://github.com/thephoeron/cl-isaac/issues
 
