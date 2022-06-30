@@ -1,4 +1,4 @@
-# cl-isaac
+# CL-ISAAC
 
 [![Build Status](https://travis-ci.org/thephoeron/cl-isaac.svg?branch=master)](https://travis-ci.org/thephoeron/cl-isaac)
 [![Coverage Status](https://coveralls.io/repos/thephoeron/cl-isaac/badge.svg?branch=master)](https://coveralls.io/r/thephoeron/cl-isaac?branch=master)
@@ -13,24 +13,25 @@ http://burtleburtle.net/bob/rand/isaacafa.html
 
 This Common Lisp version is roughly as fast as Jenkins' optimised *rand.c* when compiled with SBCL.
 
-#### UPDATE 06/03/2022
+## CHANGELOG
+
+### v1.0.6 06/03/2022
 
 - Use 8-bit mask for array index in ISAAC-64 algorithms
 - Add 64-bit support to ECL and CLISP
-- Version incremented to 1.0.6
 
-#### UPDATE 04/10/2014
+### v1.0.4 04/10/2014
 
 - Added INIT-SELF-SEED for stronger cryptographic randomization.
 - Version number incremented to 1.0.4
 
-#### UPDATE 03/20/2014
+### v1.0.3 03/20/2014
 
 CL-ISAAC v1.0.3, including ISAAC-64 algorithm, now available in the March 2014 Quicklisp update.
 
 If you find any bugs, please report them at: https://github.com/thephoeron/cl-isaac/issues
 
-### USAGE
+## USAGE
 
 Make sure you have the latest Quicklisp distribution. Include CL-ISAAC as a dependency in your system definition, or evaluate `(ql:quickload "cl-isaac")` from the REPL.
 
@@ -75,7 +76,7 @@ Examples:
 
 Conversely, the ISAAC-64 algorithm uses 64-bit word sizes, and scales accordingly.
 
-### QUICK RECIPE
+## QUICK RECIPE
 
 Generate a random 128-bit session ID as a 0-padded hexadecimal string:
 
@@ -96,7 +97,7 @@ Generate a random 512-bit token using the ISAAC-64 algorithm:
     => "6F00D098A342450CD7A2C27D941625ED70E7F7F4DD0BD46D8D1597361F0AA49180728D9BA062A14E6795F579D5B04B01F92310F18921A7397C57CF09012E104F"
 ```
 
-### FAQ
+## FAQ
 
 **Q)** My Common Lisp implementation already uses the Mersenne Twister, what are the advantages of ISAAC?
 
@@ -112,27 +113,27 @@ Generate a random 512-bit token using the ISAAC-64 algorithm:
 
 Note that there is a $1000 prize you can win from Jenkins if you find a flaw in ISAAC (but all flaws in CL-ISAAC are of course mine).
 
-### PLATFORM SUPPORT
+## PLATFORM SUPPORT
 
 This library supports and is tested on macOS with:
 
-- LispWorks 8.0.0 (64-bit)
-- SBCL v2.2.4
+- LispWorks 8.0.1 (64-bit)
+- SBCL v2.2.5
 - Clozure CL v1.12.1
 - ABCL v1.9.0
 - ECL v21.2.1
 - CLISP v2.49.92
 
-### SUPPORTING THIS PROJECT
+## SUPPORTING THIS PROJECT
 
 You can support this project by [sponsoring the contributors](https://github.com/thephoeron/cl-isaac/graphs/contributors) through GitHub Sponsors.
 
-### CONTRIBUTING
+## CONTRIBUTING
 
 If you find any bugs or would like to see CL-ISAAC work on your platform, please create an issue on [the master GitHub repository](https://github.com/thephoeron/cl-isaac).
 
 To contribute to CL-ISAAC, please fork and create a pull request.
 
-### LICENSE
+## LICENSE
 
 This library is released under a BSD-like license.  Please see LICENSE file for more information.
