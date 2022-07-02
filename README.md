@@ -119,11 +119,13 @@ Note that there is a $1000 prize you can win from Jenkins if you find a flaw in 
 This library supports and is tested on macOS with:
 
 - LispWorks 8.0.1 (64-bit)
+- Allegro CL 10.1
 - SBCL v2.2.5
 - Clozure CL v1.12.1
 - ABCL v1.9.0
 - ECL v21.2.1
 - CLISP v2.49.92
+- CLASP CL v1.0.0
 
 ## SUPPORTING THIS PROJECT
 
