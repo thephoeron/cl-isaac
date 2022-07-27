@@ -24,6 +24,7 @@
   :author "Doug Hoyte <doug@hoytech.com>"
   :maintainer "\"the Phoeron\" Colin J.E. Lupton <sysop@thephoeron.com>"
   :license "BSD Simplified"
+  :depends-on (#:secure-random)
   :components ((:file "packages")
                (:file "isaac-32")
                (:file "isaac-64")
