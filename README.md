@@ -1,8 +1,6 @@
 # CL-ISAAC
 
-[![Build Status](https://travis-ci.org/thephoeron/cl-isaac.svg?branch=master)](https://travis-ci.org/thephoeron/cl-isaac)
-[![Coverage Status](https://coveralls.io/repos/thephoeron/cl-isaac/badge.svg?branch=master)](https://coveralls.io/r/thephoeron/cl-isaac?branch=master)
-[![Quicklisp](http://quickdocs.org/badge/cl-isaac.svg)](http://quickdocs.org/cl-isaac/)
+[![Quicklisp](https://quickdocs.org/badge/cl-isaac.svg)](https://quickdocs.org/cl-isaac/)
 [![BSD Simplified License](https://img.shields.io/badge/license-BSD%20Simplified-blue.svg)](./LICENSE)
 
 Optimized Common Lisp library of Bob Jenkins' ISAAC-32 and ISAAC-64 algorithms, fast cryptographic random number generators: Indirection, Shift, Accumulate, Add, and Count. Available in Quicklisp.
@@ -14,6 +12,10 @@ http://burtleburtle.net/bob/rand/isaacafa.html
 This Common Lisp version is roughly as fast as Jenkins' optimised *rand.c* when compiled with SBCL.
 
 ## CHANGELOG
+
+### v1.0.7 08/14/2022
+
+- Update project metadata, copyright headers, and README file
 
 ### v1.0.6 06/03/2022
 

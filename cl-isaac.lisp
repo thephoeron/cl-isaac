@@ -1,7 +1,7 @@
 ;;;; -*- Mode: LISP; Syntax: COMMON-LISP; Package: CL-ISAAC; Base: 10 -*- file: cl-isaac.lisp
 
 ;; Copyright (c) 2008 Doug Hoyte, HCSW
-;; Copyright (c) 2014, "the Phoeron" Colin J.E. Lupton
+;; Copyright (c) 2014--2022, "the Phoeron" Colin J.E. Lupton
 ;; BSD license: you can do anything you want with it (but no warranty).
 
 (in-package #:cl-isaac)
