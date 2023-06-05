@@ -17,7 +17,7 @@
   (c 0 :type (unsigned-byte 32)))
 
 (defun generate-next-isaac-block (ctx)
-  (declare (optimize (speed 3) (safety 0)))
+  ;(declare (optimize (speed 3) (safety 0)))
   (incf (isaac-ctx-c ctx))
   (incf (isaac-ctx-b ctx) (isaac-ctx-c ctx))
   (loop for i from 0 below 256 do
@@ -48,7 +48,7 @@
 
 (defun rand32 (ctx)
   (let ((c (isaac-ctx-randcnt ctx)))
-    (declare (optimize (speed 3) (safety 0)))
+    ;(declare (optimize (speed 3) (safety 0)))
     (decf (isaac-ctx-randcnt ctx))
     (if (zerop c)
       (progn
