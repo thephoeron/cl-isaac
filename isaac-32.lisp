@@ -23,14 +23,14 @@
   (loop for i from 0 below 256 do
     (setf (isaac-ctx-a ctx)
           (logxor (isaac-ctx-a ctx)
-                  (logand #xFFFFFFFF
-                    (the (unsigned-byte 32)
-                      (ash (isaac-ctx-a ctx)
-                           (ecase (logand i 3)
-                             ((0) 13)
-                             ((1) -6)
-                             ((2) 2)
-                             ((3) -16)))))))
+                  (the (unsigned-byte 32)
+                    (logand #xFFFFFFFF
+                            (ash (isaac-ctx-a ctx)
+                                 (ecase (logand i 3)
+                                   ((0) 13)
+                                   ((1) -6)
+                                   ((2) 2)
+                                   ((3) -16)))))))
     (setf (isaac-ctx-a ctx)
           (logand #xFFFFFFFF
                   (+ (isaac-ctx-a ctx)
