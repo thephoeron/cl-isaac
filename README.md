@@ -13,6 +13,12 @@ This Common Lisp version is roughly as fast as Jenkins' optimised *rand.c* when 
 
 ## CHANGELOG
 
+### v1.0.8 06/17/2023
+
+- Update documentation and GitHub Pages config
+- Fix issues with inline type declarations for SBCL on Windows and Linux
+- Migrate unit tests to [Parachute][]
+
 ### v1.0.7 08/14/2022
 
 - Update project metadata, copyright headers, and README file
@@ -118,16 +124,26 @@ Note that there is a $1000 prize you can win from Jenkins if you find a flaw in 
 
 ## PLATFORM SUPPORT
 
-This library supports and is tested on macOS with:
+This library supports and is tested on the following platforms and Lisp implementations.
 
-- LispWorks 8.0.1 (64-bit)
-- Allegro CL 10.1
-- SBCL v2.2.5
-- Clozure CL v1.12.1
-- ABCL v1.9.0
-- ECL v21.2.1
-- CLISP v2.49.92
-- CLASP CL v1.0.0
+### macOS
+
+- [LispWorks][] 8.0.1 (64-bit)
+- [Allegro CL][] 10.1
+- [SBCL][] 2.3.4
+- [ABCL][] 1.9.1
+- [ECL][] 21.2.1
+- [CLISP][] 2.49.92
+- [CLASP CL][] 2.3.0-20-g1c6d486bc
+- [Clozure CL][] 1.12.1
+
+### Windows
+
+- [SBCL][] 2.3.2
+
+### Linux
+
+- [SBCL][] 2.3.4
 
 ## SUPPORTING THIS PROJECT
 
@@ -142,3 +158,17 @@ To contribute to CL-ISAAC, please fork and create a pull request.
 ## LICENSE
 
 This library is released under a BSD-like license.  Please see LICENSE file for more information.
+
+[Parachute]: https://shinmera.github.io/parachute
+[GitHubCopilotX]: https://github.com/features/preview/copilot-x
+[@thephoeron]: https://github.com/thephoeron
+[AliveExtension]: https://marketplace.visualstudio.com/items?itemName=rheller.alive
+[BAPHOMET]: https://github.com/thephoeron/baphomet
+[LispWorks]: https://www.lispworks.com/
+[SBCL]: https://www.sbcl.org/
+[Allegro CL]: https://franz.com/products/allegrocl/
+[Clozure CL]: https://ccl.clozure.com/
+[ABCL]: https://abcl.org/
+[ECL]: https://common-lisp.net/project/ecl/
+[CLISP]: https://clisp.sourceforge.io/
+[CLASP CL]: https://github.com/clasp-developers/clasp
