@@ -11,15 +11,16 @@ The format is based on [Keep a Changelog][], and this project adheres to [Semant
 ### Added
 
 - Support for [Parachute][] unit testing framework
+- Fine-grained unit tests for ISAAC-32 and ISAAC-64 algorithms
 - CHANGELOG.md file following [Keep a Changelog][] format
 
 ### Fixed
 
-- Inline type declaration errors for SBCL on Windows and Linux when compiler restriction policies set type safety to 3
+- Inline type declaration errors for SBCL on Windows and Linux when compiler restriction policies set type safety to 2 or 3
 
 ### Changed
 
-- Unit tests migrated from [Prove][] to [Parachute][]
+- CL-ISAAC API unit tests migrated from [Prove][] to [Parachute][]
 - Quick Recipes refactored for more idiomatic Common Lisp
 - Function reference and quick recipes copied to project documentation and revised
 - GitHub Pages config file updated with new template, project logo, and project metadata

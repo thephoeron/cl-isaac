@@ -11,6 +11,15 @@
   (:use :cl :cl-user)
   (:export ;; ISAAC-32
            #:isaac-ctx
+           #:isaac-ctx-p
+           #:make-isaac-ctx
+           #:copy-isaac-ctx
+           #:isaac-ctx-randrsl
+           #:isaac-ctx-randcnt
+           #:isaac-ctx-randmem
+           #:isaac-ctx-a
+           #:isaac-ctx-b
+           #:isaac-ctx-c
            #:generate-next-isaac-block
            #:rand32
            #:rand-bits
@@ -18,6 +27,15 @@
            #:scramble
            ;; ISAAC-64
            #:isaac64-ctx
+           #:isaac64-ctx-p
+           #:make-isaac64-ctx
+           #:copy-isaac64-ctx
+           #:isaac64-ctx-randrsl
+           #:isaac64-ctx-randcnt
+           #:isaac64-ctx-randmem
+           #:isaac64-ctx-a
+           #:isaac64-ctx-b
+           #:isaac64-ctx-c
            #:generate-next-isaac64-block
            #:rand64
            #:rand-bits-64

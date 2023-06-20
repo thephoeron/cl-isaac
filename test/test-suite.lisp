@@ -9,4 +9,7 @@
   (of-type (unsigned-byte 8) #xFF)
   (of-type (unsigned-byte 16) #xFFFF)
   (of-type (unsigned-byte 32) #xFFFFFFFF)
-  (of-type (unsigned-byte 64) #xFFFFFFFFFFFFFFFF))
+  (of-type (unsigned-byte 64) #xFFFFFFFFFFFFFFFF)
+  (with-fixtures '(*isaac32-ctx* *isaac64-ctx*)
+    (of-type null *isaac32-ctx*)
+    (of-type null *isaac64-ctx*)))
