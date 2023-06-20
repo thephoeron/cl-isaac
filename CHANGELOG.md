@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog][], and this project adheres to [Semant
 - Support for [Parachute][] unit testing framework
 - Package exports for all generated struct functions, for `ISAAC-CTX` and `ISAAC64-CTX`
 - Fine-grained unit tests for ISAAC-32 and ISAAC-64 algorithms
+- TRIVIAL-FEATURES to test system dependencies
 - CHANGELOG.md file following [Keep a Changelog][] format
 
 ### Fixed

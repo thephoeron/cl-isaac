@@ -39,7 +39,7 @@
   :bug-tracker "https://gitlab.common-lisp.net/thephoeron/cl-isaac/-/issues"
   :mailto "thephoeron@protonmail.com"
   :license "BSD Simplified"
-  :depends-on (:cl-isaac :parachute)
+  :depends-on (:cl-isaac :parachute :trivial-features)
   :serial t
   :components ((:module "test"
                 :serial t
