@@ -6,11 +6,12 @@ The format is based on [Keep a Changelog][], and this project adheres to [Semant
 
 ## [Unreleased]
 
-<!-- ## [1.0.8] - 2023-06-19 -->
+<!-- ## [1.0.8] - 2023-06-20 -->
 
 ### Added
 
 - Support for [Parachute][] unit testing framework
+- Package exports for all generated struct functions, for `ISAAC-CTX` and `ISAAC64-CTX`
 - Fine-grained unit tests for ISAAC-32 and ISAAC-64 algorithms
 - CHANGELOG.md file following [Keep a Changelog][] format
 
