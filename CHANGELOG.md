@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog][], and this project adheres to [Semant
 
 ## [Unreleased]
 
-<!-- ## [1.0.8] - 2023-06-20 -->
+## [1.0.8] - 2023-06-21
 
 ### Added
 
