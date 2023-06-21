@@ -13,22 +13,7 @@ This Common Lisp version is roughly as fast as Jenkins' optimised *rand.c* when 
 
 ## CHANGELOG
 
-### v1.0.7 08/14/2022
-
-- Update project metadata, copyright headers, and README file
-
-### v1.0.6 06/03/2022
-
-- Use 8-bit mask for array index in ISAAC-64 algorithms
-- Add 64-bit support to ECL and CLISP
-
-### v1.0.4 04/10/2014
-
-- Added INIT-SELF-SEED for stronger cryptographic randomization.
-
-### v1.0.3 03/20/2014
-
-- Available in the March 2014 Quicklisp update.
+All notable changes to this project are documented in [CHANGELOG.md](./CHANGELOG.md)
 
 ## ISSUES
 
@@ -86,8 +71,8 @@ Generate a random 128-bit session ID as a 0-padded hexadecimal string:
 ```lisp
 
 * (ql:quickload "cl-isaac")
-* (defvar my-isaac-ctx (isaac:init-kernel-seed))
-* (format nil "~32,'0x" (isaac:rand-bits my-isaac-ctx 128))
+* (defparameter *isaac-ctx* (isaac:init-kernel-seed))
+* (format nil "~32,'0x" (isaac:rand-bits *isaac-ctx* 128))
     => "078585213B0EF01B1B9BECB291EF38F0"
 ```
 
@@ -95,8 +80,8 @@ Generate a random 512-bit token using the ISAAC-64 algorithm:
 
 ```lisp
 
-* (defvar my-isaac64-ctx (isaac:init-kernel-seed :is64 t))
-* (format nil "~64,'0x" (isaac:rand-bits-64 my-isaac64-ctx 512))
+* (defparameter *isaac64-ctx* (isaac:init-kernel-seed :is64 t))
+* (format nil "~64,'0x" (isaac:rand-bits-64 *isaac64-ctx* 512))
     => "6F00D098A342450CD7A2C27D941625ED70E7F7F4DD0BD46D8D1597361F0AA49180728D9BA062A14E6795F579D5B04B01F92310F18921A7397C57CF09012E104F"
 ```
 
@@ -118,16 +103,26 @@ Note that there is a $1000 prize you can win from Jenkins if you find a flaw in 
 
 ## PLATFORM SUPPORT
 
-This library supports and is tested on macOS with:
+This library supports and is tested on the following platforms and Lisp implementations.
 
-- LispWorks 8.0.1 (64-bit)
-- Allegro CL 10.1
-- SBCL v2.2.5
-- Clozure CL v1.12.1
-- ABCL v1.9.0
-- ECL v21.2.1
-- CLISP v2.49.92
-- CLASP CL v1.0.0
+### macOS
+
+- [LispWorks][] 8.0.1 (64-bit)
+- [Allegro CL][] 10.1
+- [SBCL][] 2.3.4
+- [ABCL][] 1.9.2
+- [ECL][] 21.2.1
+- [CLISP][] 2.49.92
+- [CLASP CL][] 2.3.0-38-gd5637675b
+- [Clozure CL][] 1.12.1
+
+### Windows
+
+- [SBCL][] 2.3.2
+
+### Linux
+
+- [SBCL][] 2.3.4
 
 ## SUPPORTING THIS PROJECT
 
@@ -142,3 +137,17 @@ To contribute to CL-ISAAC, please fork and create a pull request.
 ## LICENSE
 
 This library is released under a BSD-like license.  Please see LICENSE file for more information.
+
+[Parachute]: https://shinmera.github.io/parachute
+[GitHubCopilotX]: https://github.com/features/preview/copilot-x
+[@thephoeron]: https://github.com/thephoeron
+[AliveExtension]: https://marketplace.visualstudio.com/items?itemName=rheller.alive
+[BAPHOMET]: https://github.com/thephoeron/baphomet
+[LispWorks]: https://www.lispworks.com/
+[SBCL]: https://www.sbcl.org/
+[Allegro CL]: https://franz.com/products/allegrocl/
+[Clozure CL]: https://ccl.clozure.com/
+[ABCL]: https://abcl.org/
+[ECL]: https://common-lisp.net/project/ecl/
+[CLISP]: https://clisp.sourceforge.io/
+[CLASP CL]: https://github.com/clasp-developers/clasp
