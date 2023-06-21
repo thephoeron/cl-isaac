@@ -110,10 +110,10 @@ This library supports and is tested on the following platforms and Lisp implemen
 - [LispWorks][] 8.0.1 (64-bit)
 - [Allegro CL][] 10.1
 - [SBCL][] 2.3.4
-- [ABCL][] 1.9.1
+- [ABCL][] 1.9.2
 - [ECL][] 21.2.1
 - [CLISP][] 2.49.92
-- [CLASP CL][] 2.3.0-20-g1c6d486bc
+- [CLASP CL][] 2.3.0-38-gd5637675b
 - [Clozure CL][] 1.12.1
 
 ### Windows
