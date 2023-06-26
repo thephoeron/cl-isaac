@@ -16,3 +16,5 @@
 *.wx64fsl
 *.wx32fsl
 reference/*.*
+.DS_Store
+.vscode
