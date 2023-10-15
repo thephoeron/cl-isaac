@@ -47,15 +47,15 @@
       (setf (aref (isaac-ctx-randrsl ctx) i) (isaac-ctx-b ctx)))))
 
 (defun rand32 (ctx)
-  (let ((c (isaac-ctx-randcnt ctx)))
-    ;(declare (optimize (speed 3) (safety 0)))
-    (decf (isaac-ctx-randcnt ctx))
-    (if (zerop c)
-      (progn
-        (generate-next-isaac-block ctx)
-        (setf (isaac-ctx-randcnt ctx) 255)
-        (aref (isaac-ctx-randrsl ctx) 255))
-      (aref (isaac-ctx-randrsl ctx) (isaac-ctx-randcnt ctx)))))
+  ;;(declare (optimize (speed 3) (safety 0)))
+  (cond
+    ((zerop (isaac-ctx-randcnt ctx))
+     (generate-next-isaac-block ctx)
+     (setf (isaac-ctx-randcnt ctx) 255)
+     (aref (isaac-ctx-randrsl ctx) 255))
+    (t
+     (aref (isaac-ctx-randrsl ctx)
+           (decf (isaac-ctx-randcnt ctx))))))
 
 (defun rand-bits (ctx n)
   (let ((v 0))
