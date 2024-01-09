@@ -62,10 +62,10 @@
 (defun rand-bits-64 (ctx n)
   (let ((v 0))
     (loop while (> n 0) do
-          (setq v (logior (ash v (min n 64))
-                          (logand (1- (ash 1 (min n 64)))
-                                  (rand64 ctx))))
-          (decf n (min n 64)))
+      (setq v (logior (ash v (min n 64))
+                      (logand (1- (ash 1 (min n 64)))
+                              (rand64 ctx))))
+      (decf n (min n 64)))
     v))
 
 (defmacro incf-wrap64 (a b)
