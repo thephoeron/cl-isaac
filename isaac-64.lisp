@@ -49,15 +49,15 @@
       (setf (aref (isaac64-ctx-randrsl ctx) i) (isaac64-ctx-b ctx)))))
 
 (defun rand64 (ctx)
-  (let ((c (isaac64-ctx-randcnt ctx)))
-    ;(declare (optimize (speed 3) (safety 0)))
-    (decf (isaac64-ctx-randcnt ctx))
-    (if (zerop c)
-      (progn
-        (generate-next-isaac64-block ctx)
-        (setf (isaac64-ctx-randcnt ctx) 255)
-        (aref (isaac64-ctx-randrsl ctx) 255))
-      (aref (isaac64-ctx-randrsl ctx) (isaac64-ctx-randcnt ctx)))))
+  ;;(declare (optimize (speed 3) (safety 0)))
+  (cond
+    ((zerop (isaac64-ctx-randcnt ctx))
+     (generate-next-isaac64-block ctx)
+     (setf (isaac64-ctx-randcnt ctx) 255)
+     (aref (isaac64-ctx-randrsl ctx) 255))
+    (t
+     (aref (isaac64-ctx-randrsl ctx)
+           (decf (isaac64-ctx-randcnt ctx))))))
 
 (defun rand-bits-64 (ctx n)
   (let ((v 0))

@@ -23,7 +23,11 @@ If you find any bugs, please report them at: https://github.com/thephoeron/cl-is
 
 Make sure you have the latest Quicklisp distribution. Include CL-ISAAC as a dependency in your system definition, or evaluate `(ql:quickload "cl-isaac")` from the REPL.
 
-First, you need to create an isaac context.  If you have a 64-bit implementation of Lisp on an x86-64 platform, you can set `:is64 t` to take advantage of the ISAAC-64 algorithm. There are four functions that do this:
+First, you need to create an isaac context.
+
+**WARNING - Thread Safety**: If your application is multi-threaded and you are passing in a seed variable, you must add a lock to the seed variable. With Bordeaux Threads it can be done with `bt2:with-lock`
+
+If you have a 64-bit implementation of Lisp on an x86-64 platform, you can set `:is64 t` to take advantage of the ISAAC-64 algorithm. There are four functions that do this:
 
 **isaac:init-self-seed** &key (count 1) (is64 nil) => *`<isaac context>`*
 

@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog][], and this project adheres to [Semant
 
 ## [Unreleased]
 
+### Fixed
+
+- Error "The value -1 is not of type (UNSIGNED-BYTE 64) when setting slot CL-ISAAC::RANDCNT of structure CL-ISAAC:ISAAC64-CTX".
+
+  This error happened when you set optimization policy `SAFETY > 0` in SBCL.
+  
+  Closes issue https://github.com/thephoeron/cl-isaac/issues/12.
+
 ## [1.0.8] - 2023-06-21
 
 ### Added
